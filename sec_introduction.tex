@@ -1,0 +1,43 @@
+\section{Introduction}
+
+Let $\pi:X\rightarrow X_0$ be a conical symplectic resolution with a Hamiltonian action of a torus $T$ on $X$ and $X_0$ such that $\pi$ is $T$-equivariant.
+Assume that $X$ has isolated $T$-fixed points.
+We have an inclusion $X^T\hookrightarrow X$ and hence the restriction map. 
+\[
+    \text{res}:\HH_T^\bullet(X, \mathbb{C})\to \HH^\bullet_T(X^T,\mathbb{C})\simeq \mathbb{C}^{X^T}\otimes\HH_T^\bullet(\text{pt},\mathbb{C}).
+\]
+Specifying to a generic cocharacter $\sigma\in \lie{t}$ gives us a cohomological filtration on $\mathbb{C}^{X^T}$, denoted by $\text{res}_\sigma$.
+
+In the theory of symplectic duality, symplectic resolutions often come in pairs. Denoted by $\pi^!:X^!\rightarrow X_0^!$ the dual symplectic resolution. One component of the duality is that there is a bijection between fixed point sets $X^T$ and ${X^!}^{T^!}$ satisfying certain conditions.
+With the same procedure as above, a choice of generic cocharacter $\eta\in \lie{t^!}$ gives us a second cohomological filtration on $\mathbb{C}^{X^T}$,
+\[
+    \text{res}^!_\eta:\HH_{T^!}^\bullet(X^!, \mathbb{C})_\eta\to \HH^\bullet_{T^!}({X^!}^{T^!},\mathbb{C})_\eta\simeq \mathbb{C}^{{X^!}^{T^!}}\simeq \mathbb{C}^{X^T},
+\]
+where the last map is given by the bijection given by symplectic duality.
+One can then ask what is the two-variable Hilbert series of $\mathbb{C}^{X^T}$ given by the bifiltrations $\text{res}_\sigma$ and $\text{res}^!_\eta$.
+
+In \cite{mcbreen2025}, the authors considered the case associated with symplectic dual pairs of hypertoric varieties. They showed that in order to get an ``interesting'' polynomial, in their case is the Tutte polynomial of the matroid associated with the symplectic dual pair, one has to use instead the stable envelope construction introduced in \cite{maulik2018quantumgroupsquantumcohomology}, in place of the above restriction maps.
+
+In this paper, we show that the bicharacteristic polynomial associated with the self-dual Springer resolution $\tilde{\nilcone} \to \nilcone$ of type $A$ is the following:
+
+\begin{theorem}[thm:bichar_full_flag]{}
+    The bicharacteristic polynomial associated with type $A$ springer resolution is
+    \[
+        \sum_{\lambda \in \Partition}^{} K_{\lambda,(1)^n}(x)\cdot K_{\lambda^T,(1)^n}(y).
+    \]
+\end{theorem}
+
+
+We start by introducing some combinatorics about Young tableaux and Kostka polynomials in \Cref{chapter_combinatorics}. 
+
+In \Cref{chapter_symplectic_duality}, we mention the basics of symplectic duality and introduce the main definition of the bicharacteristic polynomial associated with such a dual pair. 
+
+In \Cref{chapter_springer}, we give a survey on Springer Theory, with a focus on Type $A$.
+
+In \Cref{chapter_bbdg}, we introduce the Beilinson-Bernstein-Deligne-Gabber decomposition theorem and its application on Springer Resolutions.
+
+Finally, we conclude by proving \Cref{thm:bichar_full_flag} in \Cref{chapter_main_thm}.
+
+\subsection{Original Work vs Exposition}
+
+\Cref{chapter_main_thm} is the original work, joint with Tong Nok To Omega.

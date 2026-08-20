@@ -1,0 +1,224 @@
+\section{Symplectic Duality and the Bicharacteristic Polynomial}
+\label{chapter_symplectic_duality}
+
+\subsection{Symplectic Resolution}
+
+\begin{definition}[def:]{}
+    A \vocab{symplectic resolution} is a morphism $\pi : X \to X_0$ of complex algebraic varieties, where
+    \begin{enumerate}
+        \item $X$ is smooth and carries a symplectic structure,
+        \item $X_0$ is affine, normal and carries a Poisson structure,
+        \item $\pi$ is projective, birational and preserves the Poisson structures.
+    \end{enumerate}
+    Furthermore, we say that the symplectic resolution $\pi$ is
+    \begin{enumerate}
+        \item \vocab{conical} if there are $\mathbb{C}^\times$-actions on both $X$ and $X_0$, so that $\pi$ is $\mathbb{C}^\times$-equivariant and the action contracts $X_0$ to a point,
+        \item \vocab{Hamiltonian} if there are Hamiltonian torus actions by $T$ on both $X$ and $X_0$, so that $\pi$ is $T$-equivariant,
+        \item \vocab{conical Hamiltonian} if it is both conical and Hamiltonian, so that the two torus actions on both $X$ and $X_0$ commutes.
+    \end{enumerate}
+    \begin{remark}
+        We assume that the action of the Hamiltonian torus on $X$ has a finite number of fixed points. In addition, we denote by $\hbar$ the weight of the action of the conical torus on the symplectic form on $X$.
+    \end{remark}
+\end{definition}
+\begin{definition}[def:root]{}
+    Let $\pi : X \to X_0$ be a Hamiltonian symplectic resolution with torus $T$. A \vocab{root} of the symplectic resolution is a non-zero character $\chi \in \lie{t}^*_\mathbb{Z}$ of $T$ that appears in the weight decomposition of $T_pX$ for some $p \in X^T$.
+\end{definition}
+\subsection{Convolution Product and the Steinberg Variety}
+\label{sec:steinberg}
+
+Let us first review the theory of convolution in Borel-Moore homology. Let $M_1$, $M_2$ and $M_3$ be connected oriented smooth manifolds of real dimensions $d_1$, $d_2$ and $d_3$ respectively. Let $Z_{12} \subseteq M_1 \times M_2$ and $Z_{23} \subseteq M_2 \times M_3$ be closed subsets. Write $p_{ij}$ for the projection $M_1 \times M_2 \times M_3 \to M_i \times M_j$. Assume that the restriction $p_{13} : p_{12}^{-1}(Z_{12}) \cap p_{23}^{-1}(Z_{23}) \to M_1 \times M_3$ is proper, and denote its image by $Z_{13}$. Explicitly,
+\begin{equation*}
+    Z_{13} = \{ (x_1, x_3) \in M_1 \times M_3 \mid (x_1, x_2) \in Z_{12} \text{ and } (x_2, x_3) \in Z_{23} \text{ for some } x_2 \in M_2 \}.
+\end{equation*}
+Define the \vocab{convolution product} by
+\begin{equation*}
+    {*} : \HBM_{d_2-i}(Z_{12}) \otimes \HBM_{d_2-j}(Z_{23}) \to \HBM_{d_2-i-j}(Z_{13}), \quad c_{12} * c_{23} = {p_{13}}_*(p_{12}^*c_{12} \cap p_{12}^*c_{12})
+\end{equation*}
+for $c_{12} \in \HBM_{d_2-i}(Z_{12})$ and $c_{23} \in \HBM_{d_2-j}(Z_{23})$, where ${\cap}$ is the intersection pairing
+\begin{equation*}
+    \HBM_{d_2+d_3-i}(M_1 \times M_2 \times M_3) \otimes \HBM_{d_1+d_2-j}(M_1 \times M_2 \times M_3) \to \HBM_{d_2-i-j}(M_1 \times M_2 \times M_3).
+\end{equation*}
+
+We now apply the convolution product to a symplectic resolution $\pi : X \to X_0$. Write $d = \frac{1}{2}\dim_{\mathbb{C}} X$. Set $M_1 = M_2 = M_3 = X$ and $Z_{12} = Z_{23} = Z$. Then, we have $Z_{13} = Z$, defining a graded algebra structure on $\HBM_{4d-\bullet}(Z)$. The unit of this algebra is given by the diagonal $X \subseteq Z$ of degree $4d$. The involution on $Z$ that switches the two factors defines an anti-involution on the algebra $\HBM_{4d-\bullet}(Z)$.
+
+Set $M_1 = M_2 = X$, $M_3 = \mathrm{pt}$, $Z_{12} = Z$ and $Z_{23} = \pi^{-1}(x)$ for $x \in X_0$. Then, $Z_{13} = \pi^{-1}(x)$, and the convolution product gives
+\begin{equation*}
+    {*} : \HBM_{4d-i}(Z) \otimes \HH_{2d-j}(\pi^{-1}(x)) \to \HH_{2d-i-j}(\pi^{-1}(x)),
+\end{equation*}
+defining a graded left $\HBM_{4d-\bullet}(Z)$-module structure on $\HH_{2d-\bullet}(\pi^{-1}(x))$\footnote{Since $\pi$ is proper, $\pi^{-1}(x)$ is compact. Thus, $\HBM_\bullet(\pi^{-1}(x)) \cong \HH_\bullet(\pi^{-1}(x))$.}. Similarly, one can define a graded right $\HBM_{4d-\bullet}(Z)$-module structure on $\HH_{2d-\bullet}(\pi^{-1}(x))$. The two module structures are related by the anti-involution on $\HBM_{4d-\bullet}(Z)$.
+
+On the other hand, set $M_1 = M_2 = X$, $M_3 = \mathrm{pt}$, $Z_{12} = Z$ and $Z_{23} = X$. Then, $Z_{13} = X$, and the convolution product gives
+\begin{equation*}
+    {*} : \HBM_{4d-i}(Z) \otimes \HBM_{4d-j}(X) \to \HBM_{4d-i-j}(X),
+\end{equation*}
+defining a graded left (and similarly, right) $\HBM_{4d-\bullet}(Z)$-module structure on $\HBM_{4d-\bullet}(X)$. The actions on $\HH_{2d-\bullet}(\pi^{-1}(o))$ and $\HBM_{4d-\bullet}(X)$ are related by the deformation retraction $X \to \pi^{-1}(o)$ via the conical $\mathbb{C}^\times$-action, where $o \in X_0$ is the point that the $\mathbb{C}^\times$-action on $X_0$ contracts to.
+
+\begin{proposition}[prop:]{}
+    There is a canonical graded algebra isomorphism
+    \begin{equation*}
+        \HH^\bullet(X, \mathcal{E}\mathnormal{nd}_X(R\pi_*\mathbb{C}_X)) \cong \HBM_{4d-\bullet}(Z),
+    \end{equation*}
+    where $\mathcal{E}\mathnormal{nd}_X(-)$ denotes the endomorphism complex of a complex of sheaves on $X$, and $\HH^\bullet(X, -)$ denotes the hypercohomology of a complex of sheaves on $X$. Moreover, the natural action of the left-hand side on $\HH_\bullet(\pi^{-1}(x))$ coincides with the convolution action on it.
+    \begin{proof}
+        We will only show that there is a natural isomorphism of vector spaces. The remaining parts can be found in \cite[Section 8.5]{chriss1997representation}.
+    
+        Let $p_1, p_2 : Z \to X$ be the two projections, $q_X : X \to \mathrm{pt}$ and $q_Z : Z \to \mathrm{pt}$. Since $\pi$ is proper, $R\pi_! = R\pi_*$. Since $X$ is smooth, $q_X^!\mathbb{C} \cong \mathbb{C}_X[4d]$. Thus,
+        \begin{align*}
+            \mathcal{E}\mathnormal{nd}_X(R\pi_*\mathbb{C}_X) &= \mathcal{H}\mathnormal{om}_X(R\pi_*\mathbb{C}_X, R\pi_*\mathbb{C}_X) = \mathcal{H}\mathnormal{om}_X(R\pi_!\mathbb{C}_X, R\pi_*\mathbb{C}_X) \\
+            &\cong \pi^!R\pi_*\mathbb{C}_X \cong R{p_1}_*p_2^!q_X^!\mathbb{C}[-4d] = R{p_1}_*q_Z^!\mathbb{C}[-4d],
+        \end{align*}
+        where we have used the adjoint of the proper base change formula to obtain $\pi^!R\pi_* = R{p_1}_*p_2^!$. Applying $\HH^\bullet(X, -)$ to both sides gives the desired formula.
+    \end{proof}
+\end{proposition}
+\subsection{Symplectic Duality}
+
+In \cite{braden2016quantizationsconicalsymplecticresolutions}, it is observed that symplectic resolutions often come in pairs. This phenomenon is called \vocab{symplectic duality}. The following definition lists some features of such pairs of symplectic resolutions that we will need later on. Note that this list is far from exhaustive.
+
+\begin{definition}[def:symplectic_duality]{}
+    A pair of Hamiltonian symplectic resolutions $\pi : X \to X_0$ with Hamiltonian torus $T$ and $\pi^! : X^! \to X_0^!$ with Hamiltonian torus $T^!$ exhibits symplectic duality if it is equipped with
+    \begin{enumerate}
+        \item a bijection of fixed point sets $X^T \to (X^!)^{T^!}$ denoted by $x \mapsto x^!$, and
+        \item a non-degenerate bilinear pairing
+        \begin{equation*}
+            \HH^2_T(X, \mathbb{C}) \otimes_\mathbb{C} \HH^2_{T^!}(X^!, \mathbb{C}) \to \mathbb{C}
+        \end{equation*}
+        such that $\lie{t} \subseteq \HH^2_T(X, \mathbb{C})$ is perpendicular to $\lie{t}^! \subseteq \HH^2_{T^!}(X^!, \mathbb{C})$,
+    \end{enumerate}
+    so that for any $x \in X^!$, the kernel of $\HH^2_T(X, \mathbb{C}) \to \HH^2_T(\{x\}, \mathbb{C})$ is perpendicular to the kernel of $\HH^2_{T^!}(X^!, \mathbb{C}) \to \HH^2_{T^!}(\{x^!\}, \mathbb{C})$.
+\end{definition}
+\subsection{Stable Envelope}
+\label{sec:stable_envelope}
+
+Let $\pi : X \to X_0$ be a conical Hamiltonian symplectic resolution with conical torus $\mathbb{C}^\times_\hbar$ and Hamiltonian torus $T$ so that $X^T$ is finite. Write $d = \frac{1}{2} \dim_\mathbb{C} X$. Denote the set of roots of by $\Phi$ (cf. \Cref{def:root}).
+
+\begin{definition}[def:generic_cochar]{}
+    A cocharacter $\sigma \in \lie{t}_\mathbb{Z}$ of $T$ is \vocab{generic} if $\langle \sigma, \alpha \rangle \neq 0$ for all $\alpha \in \Phi$.
+\end{definition}
+
+Choose a generic cocharacter $\sigma \in \lie{t}_\mathbb{Z}$. In fact, only the choice of a chamber, i.e. a connected component in $\lie{t}_\mathbb{R} \setminus \bigcup_{\alpha \in \Phi} \alpha^\perp$, matters for our purpose. This defines a decomposition $\Phi = \Phi^+ \sqcup \Phi^-$ of $\Phi$ into positive and negative roots. Namely,
+\begin{equation*}
+    \Phi^+ = \{ \alpha \in \Phi \mid \langle \sigma, \alpha \rangle > 0 \} \quad \text{and} \quad \Phi^- = \{ \alpha \in \Phi \mid \langle \sigma, \alpha \rangle < 0 \}.
+\end{equation*}
+
+In this case, we have $X^\sigma = X^T$, where $X^\sigma$ denotes the set of fixed points of $X$ under the action of the one parameter subgroup of $T$ determined by $\sigma$.
+
+Let $p \subseteq X^T$. Define the \vocab{attracting cell} of $p$ by
+\begin{equation*}
+    \Attr_\sigma(p) = \{ x \in X \mid \lim_{t \to 0} \sigma(t) \cdot x = p \}.
+\end{equation*}
+Define a partial order on $X^T$ by the transitive closure of the relation
+\begin{equation*}
+    p \leq q \quad \text{if} \quad p \in \overline{\Attr_\sigma(q)}.
+\end{equation*}
+Define the \vocab{full attracting cell} of $p$ by
+\begin{equation*}
+    \fAttr_\sigma(p) = \bigsqcup_{q \leq p}\Attr_\sigma(q).
+\end{equation*}
+
+Note that $T_pX$ decomposes into $T$-weight spaces by $T_pX = \bigoplus_{\alpha \in \Phi} (T_pX)_\alpha$. Define
+\begin{equation*}
+    T_p^+X = \bigoplus_{\alpha \in \Phi^+} (T_pX)_\alpha \quad \text{and} \quad T_p^-X = \bigoplus_{\alpha \in \Phi^-} (T_pX)_\alpha.
+\end{equation*}
+
+\begin{proposition}[pps:attr_nnegative]{}
+    $T_p^-X \cong (T_p^+X)^* \otimes \hbar$ as $(T \times \mathbb{C}^\times_\hbar)$-representations and $N_p(\Attr_\sigma(p)) = T_p^-X$.
+\end{proposition}
+
+We define another way of decomposing $T_pX$ via polarization. A \vocab{local polarization} at $p$ is a choice of $\varepsilon_p \in \HH_T^{2d}(\{p\})$ such that
+\begin{equation*}
+    e^T(T_pX) = (-1)^d \varepsilon_p^2.
+\end{equation*}
+A \vocab{global polarization} on $X$ is a choice of $T^{1/2} \in K_{T \times \mathbb{C}^\times_\hbar}(X)$ such that
+\begin{equation*}
+    [TX]^{T \times \mathbb{C}^\times_\hbar} = T^{1/2} + \hbar(T^{1/2})^*.
+\end{equation*}
+Given a global polarization $T^{1/2}$, one can define a local polarization by $\varepsilon_p = e^T(T^{1/2}|_p)$.
+
+\begin{theorem}[thm:stable_envelope]{}
+    There exists a unique $\HH^\bullet_{T\times \Chbar}(\mathrm{pt})$-module homomorphism
+    \[
+        \Stab_{\sigma,\varepsilon} : \HH^\bullet_{T \times \Chbar}(X^T) \to \HH^{\bullet+2d}_{T \times \Chbar}(X)
+    \]
+    such that for all $p \in X^T$ and $\gamma \in \HH^\bullet_{T \times \Chbar}(\{p\})$, we have
+    \begin{enumerate}
+        \item $\supp(\Stab_{\sigma,\varepsilon}(\gamma)) \subseteq \fAttr_\sigma(p)$,
+        \item $\Stab_{\sigma,\varepsilon}(\gamma)|_p = \pm e^{T \times \Chbar}(T_p^-X)\cdot\gamma$, where $\pm$ is a sign satisfying $\varepsilon_p = \pm e^T(T_p^-X)$,
+        \item for all fixed-points $q < p$, $\Stab_{\sigma,\varepsilon}(\gamma)|_q$ is divisible by $\hbar$.
+    \end{enumerate}
+    The map $\Stab_{\sigma,\varepsilon}$ is called the \vocab{stable envelope}.
+\end{theorem}
+
+\begin{remark}
+    It follows that $\Stab_{\sigma,\varepsilon}$ is determined by its values at $[p]^{T \times \mathbb{C}^\times_\hbar} \in \HH^0_{T \times \Chbar}(X^T)$ over all $p \in X^T$. Write
+    \[
+        \Stab_{\sigma,\varepsilon}(p)
+        =
+        \Stab_{\sigma,\varepsilon}([p]^{T \times \mathbb{C}^\times_\hbar})
+        \in
+        \HH^{2d}_{T \times \Chbar}(X).
+    \]
+\end{remark}
+
+\begin{remark}
+    If we set $\hbar = 0$, then $\Stab_{\sigma,\varepsilon}(p)|_q = \delta_{pq}\varepsilon_p$. Furthermore, since the $T$-action on $X$ is always equivariantly formal for a conical symplectic resolution, this condition uniquely determines the stable envelope.
+\end{remark}
+
+\begin{remark}
+    Given a global polarization $T^{1/2}$, define
+    \[
+        r_p
+        =
+        \operatorname{rk}([T_p^+X] \cap T^{1/2}|_p)
+        =
+        \operatorname{rk}([T_p^-X] \cap (T^{1/2}|_p)^*)
+    \]
+    for all $p \in X^T$. Then, the sign $\pm$ appeared in (2) is given by $(-1)^{r_p}$.
+\end{remark}
+
+\begin{theorem}[thm:stab_isom]{}
+    The stable envelope becomes an isomorphism after inverting $(T \times \Chbar)$-roots in the ring $\HH^\bullet_{T\times \Chbar}(\mathrm{pt})$.
+\end{theorem}
+
+\subsection{The Bicharacteristic Polynomial}
+\label{sec:bichar_poly}
+
+Consider a dual pair of conical Hamiltonian symplectic resolutions $\pi : X \to X_0$ with Hamiltonian torus $T$ and $\pi^! : X^! \to X_0^!$ with Hamiltonian torus $T^!$. Let $d = \frac{1}{2} \dim_\mathbb{C} X$ and $d^! = \frac{1}{2} \dim_\mathbb{C} X^!$. Denote the set of root of $X$ and $X^!$ by $\Phi$ and $\Phi^!$ respectively. Fix generic cocharacters $\sigma \in \lie{t}_\mathbb{Z}$ and $\eta \in \lie{t}^!_\mathbb{Z}$, and local polarizations $\varepsilon$ on $X$ and $\varepsilon^!$ on $X^!$.
+
+Write
+\begin{align*}
+    \lie{t}_\mathrm{reg} &= \lie{t} \setminus \bigcup_{\chi \in \Phi} \chi^\perp & \mathbb{C}[\lie{t}]_\loc &= \mathbb{C}[\lie{t}][\Phi^{-1}] = \mathbb{C}[\lie{t}_\mathrm{reg}], \\
+    \lie{t}^!_\mathrm{reg} &= \lie{t}^! \setminus \bigcup_{\chi \in \Phi^!} \chi^\perp & \mathbb{C}[\lie{t}^!]_\loc &= \mathbb{C}[\lie{t}^!][(\Phi^!)^{-1}] = \mathbb{C}[\lie{t}^!_\mathrm{reg}].
+\end{align*}
+Note that $\sigma$ and $\eta$ being generic implies that $\sigma \in \lie{t}_\mathrm{reg}$ and $\eta \in \lie{t}^!_\mathrm{reg}$.
+
+The bijection $X^T \to (X^!)^{T^!}$ in \Cref{def:symplectic_duality} (1) defines the isomorphism
+\begin{equation*}
+    \HH^\bullet_T(X^T) \otimes_\mathbb{C} \HH^\bullet_{T^!}(\mathrm{pt}) \cong \mathbb{C}[\lie{t} \times \lie{t}^!]^{\oplus X^T} \xrightarrow{\sim} \mathbb{C}[\lie{t} \times \lie{t}^!]^{\oplus (X^!)^{T^!}} \cong \HH^\bullet_T(\mathrm{pt}) \otimes_\mathbb{C} \HH^\bullet_{T^!}((X^!)^{T^!})
+\end{equation*}
+Denote this $\mathbb{C}[\lie{t} \times \lie{t}^!]$-module by $W^{\bullet, \bullet}$. The stable envelopes (where we set $\hbar = 0$) provide the following maps.
+\begin{equation*}
+    \HH^{\bullet+2d}_T(X) \otimes_\mathbb{C} \HH^\bullet_{T^!}(\mathrm{pt}) \xleftarrow{\Stab_{\sigma, \varepsilon}^X} W^{\bullet, \bullet} \xrightarrow{\Stab_{\eta, \varepsilon^!}^{X^!}} \HH^\bullet_T(\mathrm{pt}) \otimes_\mathbb{C} \HH^{\bullet+2d^!}_{T^!}(X^!)
+\end{equation*}
+By \Cref{thm:stab_isom}, the above maps become isomorphisms after inverting the elements in $\Phi$ and $\Phi^!$.
+\begin{equation} \label{eqn:M}
+    \HH^{\bullet+2d}_T(X)_\loc \otimes_\mathbb{C} \HH^\bullet_{T^!}(\mathrm{pt})_\loc \xleftarrow[\sim]{\Stab_{\sigma, \varepsilon}^X} W^{\bullet, \bullet}_\loc \xrightarrow[\sim]{\Stab_{\eta, \varepsilon^!}^{X^!}} \HH^\bullet_T(\mathrm{pt})_\loc \otimes_\mathbb{C} \HH^{\bullet+2d^!}_{T^!}(X^!)_\loc
+\end{equation}
+Since $\sigma$ and $\eta$ are generic, we can further tensor with the evaluation $\mathbb{C}[\lie{t} \times \lie{t}^!]_\loc \to \mathbb{C}$ at the point $(\sigma, \eta) \in \lie{t}_\mathrm{reg} \times \lie{t}^!_\mathrm{reg}$ .
+\begin{equation} \label{eqn:m}
+    \HH_T(X)_\sigma \xleftarrow[\sim]{\Stab_{\sigma, \varepsilon}^X} W_{\sigma, \eta} \xrightarrow[\sim]{\Stab_{\eta, \varepsilon^!}^{X^!}} \HH_{T^!}(X^!)_\eta
+\end{equation}
+Since we are specializing at non-zero cocharacters, the resulting rings will only be filtered but not graded. The vector space $W = W_{\sigma, \eta}$ carries two filtrations, induced by the filtration on $\HH_T(X)_\sigma$ and $\HH_{T^!}(X^!)_\eta$ respectively. Denote by $F_iW$ the $i$-th filtered piece in the former filtration and by $F^!_jW$ the $j$-th filtered piece in the latter filtration. The associated graded vector space of $W$ is the bigraded vector space given by
+\begin{equation*}
+    \mathrm{gr}_{i, j} W = \frac{F_iW \cap F^!_jW}{F_{i-1}W \cap F^!_jW + F_iW \cap F^!_{j-1}W}.
+\end{equation*}
+
+\begin{definition}[def:]{}
+    The \vocab{bicharacteristic polynomial} of the dual pair of symplectic resolutions is defined by
+    \begin{equation*}
+        \Tutte_{X, X^!}(x, y) = \sum_{i=0}^d \sum_{j=0}^{d^!} \dim (\mathrm{gr}_{2(d-i), 2(d^!-j)} W) \, x^i y^j.
+    \end{equation*}
+\end{definition}
+
+To see that this definition makes sense, note that by \cite{kaledin2006symplecticsingularitiespoissonpoint}, the cohomology of a conical symplectic resolution $X$ is supported in even degrees up to $\dim_\mathbb{C} X$. It follows that the associated graded vector space of $W$ is supported in degrees $\{ (2i, 2j) \mid 0 \leq i \leq d, 0 \leq j \leq d^! \}$.
+
+In fact, the bicharacteristic polynomial does not depend on the choices of the generic cocharacters $\sigma$ and $\eta$. To see this, note that $\HH^{\bullet+2d}_T(X) \otimes_\mathbb{C} \HH^\bullet_{T^!}(\mathrm{pt})$ and $\HH^\bullet_T(\mathrm{pt}) \otimes_\mathbb{C} \HH^{\bullet+2d^!}_{T^!}(X^!)$ define two $(\mathbb{C}^\times \times \mathbb{C}^\times)$-equivariant vector bundles $\mathcal{H}$ and $\mathcal{H}^!$ on $\lie{t} \times \lie{t}^!$. Using the isomorphism in \ref{eqn:M}, we can glue $\mathcal{H}|_{\lie{t}_\mathrm{reg} \times \lie{t}^!}$ and $\mathcal{H}^!|_{\lie{t} \times \lie{t}^!_\mathrm{reg}}$ along $\lie{t}_\mathrm{reg} \times \lie{t}^!_\mathrm{reg}$. The resulting vector bundle on $\lie{t}_\mathrm{reg} \times \lie{t}^! \cup \lie{t} \times \lie{t}^!_\mathrm{reg}$ has a unique extension to $\lie{t} \times \lie{t}^!$ (since it is the complement of the codimension $2$ subspace $(\lie{t} \setminus \lie{t}_\mathrm{reg}) \times (\lie{t}^! \setminus \lie{t}^!_\mathrm{reg})$). The bifiltered vector space $W_{\sigma, \eta}$ is the fiber at $(\sigma, \eta)$, while the associated graded vector space is the fiber at $0$.
