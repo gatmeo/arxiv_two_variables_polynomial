@@ -1,7 +1,7 @@
-\section{Symplectic Duality and the Bicharacteristic Polynomial}
+\section{Symplectic duality and the bicharacteristic polynomial}
 \label{chapter_symplectic_duality}
 
-\subsection{Symplectic Resolution}
+\subsection{Symplectic resolutions}
 
 \begin{definition}[def:]{}
     A \vocab{symplectic resolution} is a morphism $\pi : X \to X_0$ of complex algebraic varieties, where
@@ -23,8 +23,25 @@
 \begin{definition}[def:root]{}
     Let $\pi : X \to X_0$ be a Hamiltonian symplectic resolution with torus $T$. A \vocab{root} of the symplectic resolution is a non-zero character $\chi \in \lie{t}^*_\mathbb{Z}$ of $T$ that appears in the weight decomposition of $T_pX$ for some $p \in X^T$.
 \end{definition}
-\subsection{Convolution Product and the Steinberg Variety}
+\subsection{Convolution}
 \label{sec:steinberg}
+
+For a symplectic resolution $\pi:X\to X_0$, set
+\[
+  Z=X\times_{X_0}X,
+  \qquad d=\tfrac12\dim_\mathbb{C}X.
+\]
+The usual pull--intersect--push construction gives
+$\HBM_{4d-\bullet}(Z)$ a graded convolution algebra structure. It acts
+from the left and the right on $\HH_{2d-\bullet}(\pi^{-1}(x))$ and on
+$\HBM_{4d-\bullet}(X)$; the two actions are related by the
+anti-involution induced by interchanging the factors of $Z$. We use
+these actions only for the Springer resolution, where they are recalled
+more explicitly in \Cref{sec:steinberg_variety}. We refer to
+\cite[Section 8.5]{chriss1997representation} for the general
+construction.
+
+\iffalse
 
 Let us first review the theory of convolution in Borel-Moore homology. Let $M_1$, $M_2$ and $M_3$ be connected oriented smooth manifolds of real dimensions $d_1$, $d_2$ and $d_3$ respectively. Let $Z_{12} \subseteq M_1 \times M_2$ and $Z_{23} \subseteq M_2 \times M_3$ be closed subsets. Write $p_{ij}$ for the projection $M_1 \times M_2 \times M_3 \to M_i \times M_j$. Assume that the restriction $p_{13} : p_{12}^{-1}(Z_{12}) \cap p_{23}^{-1}(Z_{23}) \to M_1 \times M_3$ is proper, and denote its image by $Z_{13}$. Explicitly,
 \begin{equation*}
@@ -70,7 +87,8 @@ defining a graded left (and similarly, right) $\HBM_{4d-\bullet}(Z)$-module stru
         where we have used the adjoint of the proper base change formula to obtain $\pi^!R\pi_* = R{p_1}_*p_2^!$. Applying $\HH^\bullet(X, -)$ to both sides gives the desired formula.
     \end{proof}
 \end{proposition}
-\subsection{Symplectic Duality}
+\fi
+\subsection{Symplectic duality}
 
 In \cite{braden2016quantizationsconicalsymplecticresolutions}, it is observed that symplectic resolutions often come in pairs. This phenomenon is called \vocab{symplectic duality}. The following definition lists some features of such pairs of symplectic resolutions that we will need later on. Note that this list is far from exhaustive.
 
@@ -86,7 +104,7 @@ In \cite{braden2016quantizationsconicalsymplecticresolutions}, it is observed th
     \end{enumerate}
     so that for any $x \in X^!$, the kernel of $\HH^2_T(X, \mathbb{C}) \to \HH^2_T(\{x\}, \mathbb{C})$ is perpendicular to the kernel of $\HH^2_{T^!}(X^!, \mathbb{C}) \to \HH^2_{T^!}(\{x^!\}, \mathbb{C})$.
 \end{definition}
-\subsection{Stable Envelope}
+\subsection{Stable envelopes}
 \label{sec:stable_envelope}
 
 Let $\pi : X \to X_0$ be a conical Hamiltonian symplectic resolution with conical torus $\mathbb{C}^\times_\hbar$ and Hamiltonian torus $T$ so that $X^T$ is finite. Write $d = \frac{1}{2} \dim_\mathbb{C} X$. Denote the set of roots of by $\Phi$ (cf. \Cref{def:root}).
@@ -176,10 +194,12 @@ Given a global polarization $T^{1/2}$, one can define a local polarization by $\
 \end{remark}
 
 \begin{theorem}[thm:stab_isom]{}
-    The stable envelope becomes an isomorphism after inverting $(T \times \Chbar)$-roots in the ring $\HH^\bullet_{T\times \Chbar}(\mathrm{pt})$.
+    After inverting the $(T \times \Chbar)$-roots in
+    $\HH^\bullet_{T\times \Chbar}(\mathrm{pt})$, the stable envelope
+    becomes an isomorphism.
 \end{theorem}
 
-\subsection{The Bicharacteristic Polynomial}
+\subsection{The bicharacteristic polynomial}
 \label{sec:bichar_poly}
 
 Consider a dual pair of conical Hamiltonian symplectic resolutions $\pi : X \to X_0$ with Hamiltonian torus $T$ and $\pi^! : X^! \to X_0^!$ with Hamiltonian torus $T^!$. Let $d = \frac{1}{2} \dim_\mathbb{C} X$ and $d^! = \frac{1}{2} \dim_\mathbb{C} X^!$. Denote the set of root of $X$ and $X^!$ by $\Phi$ and $\Phi^!$ respectively. Fix generic cocharacters $\sigma \in \lie{t}_\mathbb{Z}$ and $\eta \in \lie{t}^!_\mathbb{Z}$, and local polarizations $\varepsilon$ on $X$ and $\varepsilon^!$ on $X^!$.

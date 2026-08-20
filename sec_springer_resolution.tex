@@ -1,7 +1,36 @@
-\section{Springer Theory}
+\section{The type \mathintitle{A} Springer resolution}
 \label{chapter_springer}
 
-This chapter provides an overview of Springer theory. Most of the statements and proofs come from \cite{chriss1997representation}, where a thorough treatment on the topic is included.
+We recall the parts of Springer theory used in the proof, following
+\cite{chriss1997representation}.
+
+\subsection{Notation}
+
+Let $G$ be a connected complex semisimple group with Lie algebra
+$\lie{g}$. Fix a Borel subgroup $B\subseteq G$, with maximal torus
+$T\subseteq B$ and unipotent radical $U$. Write $\lie{b}$, $\lie{h}$,
+and $\lie{n}$ for their Lie algebras, $\Phi=\Phi^+\sqcup\Phi^-$ for the
+corresponding roots, and $W=N_G(T)/T$ for the Weyl group. The Killing
+form identifies $\lie{g}$ with $\lie{g}^*$. Let $\borel=G/B$ be the
+flag variety, let $\nilcone\subseteq\lie{g}$ be the nilpotent cone, and
+write $\lie{g}^{\mathrm{sr}}$ and $\lie{h}^{\mathrm{reg}}$ for the
+regular semisimple and regular loci, respectively.
+
+We use the following standard consequences of the Bruhat decomposition:
+\begin{lemma}[lem:bruhat_decomposition]{Bruhat decomposition}
+  There are natural bijections
+  \[
+    W\cong\borel^T\cong B\backslash G/B
+    \cong G\backslash(\borel\times\borel).
+  \]
+  The $B$-orbits $\schubert_w=BwB/B$ form the Schubert-cell
+  decomposition of $\borel$, and
+  \[
+    \schubert_w\cong\lie{n}\cap w\cdot\lie{n}^-.
+  \]
+\end{lemma}
+
+\iffalse
 
 \subsection{Semisimple Lie Groups and Lie Algebras}
 
@@ -167,6 +196,8 @@ We have the following Tableau Criterion to check the Bruhat order.
 %   $\mathfrak{B}$ is a smooth projective variety. Moreover, there exist an explicit embedding $\iota:\mathfrak{B}\hookrightarrow P(V)$, where $V$ is a finite dimensional irreducible $G$-representation.
 % \end{theorem}
 
+\fi
+
 \subsection{Springer Resolution}
 
 Define
@@ -209,6 +240,7 @@ Define $\steinberg_{\lie{g}} = \tilde{\lie{g}} \times_{\lie{g}} \tilde{\lie{g}}$
 \end{align*}
 There is an evident map $\steinberg \to \nilcone$ and an inclusion $\steinberg \hookrightarrow \tilde{\nilcone} \times \tilde{\nilcone} \cong T^*(\borel \times \borel)$\footnote{The isomorphism $T^*\borel \times T^*\borel \to T^*(\borel \times \borel)$ is given by $(gB, x, g'B, x') \mapsto (gB, g'B, x, -x')$.}.
 
+\needspace{7\baselineskip}
 \begin{lemma}[lem:irr_steinberg]{}
     The image of $\steinberg \hookrightarrow T^*(\borel \times \borel)$ is the union of the conormal bundles of the $G$-orbits of $\borel \times \borel$.
     \begin{proof}
@@ -240,6 +272,19 @@ But by \Cref{lem:irr_steinberg}, the irreducible components of $\steinberg$ all 
 \end{corollary}
 
 Recall from \Cref{sec:steinberg} that we have a convolution algebra structure on $\HBM_{4d-\bullet}(\steinberg)$ with action on $\HBM_\bullet(\borel_x)$ for all $x \in \nilcone$, where $d = \dim_\mathbb{C} \borel$. To understand this algebra, we need to study $\steinberg_\lie{g}$.
+
+The standard specialization construction gives the following result;
+see \cite[Section 3]{chriss1997representation}.
+\begin{theorem}[thm:steinberg_group_algebra]{}
+  There is an algebra isomorphism
+  \[
+    \HBMtop(\steinberg)\cong\mathbb{C}[W].
+  \]
+  Under this isomorphism, the anti-involution induced by interchanging
+  the two factors of $\steinberg$ corresponds to $w\mapsto w^{-1}$.
+\end{theorem}
+
+\iffalse
 
 There is an evident map $\steinberg_\lie{g} \to \borel \times \borel$. Recall by \Cref{lem:bruhat_decomposition} that the orbits of $\borel \times \borel$ are given by $\{ G \cdot (B, wB) \cong G/(B \cap wBw^{-1}) \}_{w \in W}$. Denote by $\Lambda_w$ the preimage of the orbit indexed by $w \in W$, i.e.
 \begin{equation*}
@@ -295,8 +340,13 @@ It follows that $\Lambda_w^S$ is the graph of the top arrow, which also equals t
         In fact, the product preserves the fundamental classes, i.e. $[\Lambda_w^{\lie{l}^*}] * [\Lambda_{w'}^{w^{-1} \cdot {\lie{l}^*}}] = [\Lambda_{ww'}^{\lie{l}^*}]$. Taking specialization, we obtain the equality $[\Lambda_w^0] * [\Lambda_{w'}^0] = [\Lambda_{ww'}^0]$.
     \end{proof}
 \end{theorem}
+\fi
 
-We now analyze how $\HBMtop(\steinberg) \cong \mathbb{C}[W]$ acts on $\HBM_\bullet(\borel_x)$ for $x \in \nilcone$. Note that \Cref{sec:steinberg} showed that $\HBM_\bullet(\borel_x)$ has a $\HBMtop(\steinberg)$-bimodule structure, related by the anti-involution on $\HBMtop(\steinberg)$. Note that the involution on $\steinberg_\lie{g}$ sends $\Lambda_w^S$ to $\Lambda_{w^{-1}}^{w^{-1} \cdot S}$. It follows by specialization that the anti-involution is given by $[\Lambda_w^0] \mapsto [\Lambda_{w^{-1}}^0]$, which corresponds to the inverse operation on $\mathbb{C}[W]$. It follows that the left $W$-representation structure on $\HBM_\bullet(\borel_x)$ is dual to the right one in the usual sense of dual representation. On the other hand, since $\borel_x$ is compact, we have $\HBM_\bullet(\borel_x)^* \cong \HH_\bullet(\borel_x)^* \cong \HH^\bullet(\borel_x)$.
+The convolution construction makes $\HBM_\bullet(\borel_x)$ a
+$\mathbb{C}[W]$-bimodule for $x\in\nilcone$. The two actions are
+related by $w\mapsto w^{-1}$, so the left representation is dual to
+the right representation. Since $\borel_x$ is compact,
+$\HBM_\bullet(\borel_x)^*\cong\HH^\bullet(\borel_x)$.
 
 For any $g \in G$, we have an isomorphism $g_* : \HBM_\bullet(\borel_x) \to \HBM_\bullet(\borel_{g \cdot x})$ given by the pushforward of the isomorphism $g : \borel_x \to \borel_{g \cdot x}$, commuting with the action by $\HBM_\bullet(\steinberg)$. This defines a $W \times \pi_0(Z_G(x))$ action on $\HBM_\bullet(\borel_x)$. This allows us recovers all the irreducible representation of $W$. The proof of the following theorem can be found in \cite[Section 3]{chriss1997representation}.
 
@@ -312,15 +362,17 @@ For any $g \in G$, we have an isomorphism $g_* : \HBM_\bullet(\borel_x) \to \HBM
     is isomorphic to $\lambda \in W^\wedge$ if $f(\lambda) = G \cdot (x, \rho)$, and $0$ if $G \cdot (x, \rho) \notin \im(f)$.
 \end{theorem}
 
-For $x = 0$, we have $\borel_0 = \borel$. The $\HBMtop(\steinberg)$-action on $\HH^\bullet(\borel)$ and on $\HH^\bullet(\tilde{\nilcone})$ are identified.
+For $x = 0$, we have $\borel_0 = \borel$. The $\HBMtop(\steinberg)$-action on $\HH^\bullet(\borel)$ and on $\HH^\bullet(\tilde{\nilcone})$ are identified. Under the homotopy equivalences $G/T\to\borel\gets\tilde{\nilcone}$, this is the usual Weyl-group action on the cohomology of $G/T$.
 
+\iffalse
 The $G$-equivariant map $G/T \to G/B \cong \borel$ is a fibration with contractible fibers isomorphic to $B/T \cong U$. Unlike $G/B$, $G/T$ carries a right $W$-action induced from the right multiplication on $G$ by $N_G(T)$. For any $h \in \lie{h}^\mathrm{reg}$, the map $G/T \to \nu^{-1}(h)$ given by $gT \mapsto (gB, g \cdot h)$ is an isomorphism. Under this isomorphism, the right action $w : G/T \to G/T$ is identified with the restriction of the left $W$-action on $\tilde{\lie{g}}^\mathrm{sr}$ by $w^{-1}$ sending $\nu^{-1}(h) \to \nu^{-1}(w^{-1} \cdot h)$. Using this fact, we can prove the following result.
-\begin{proposition}[prop:]{}
+\begin{proposition}[prop:convolution_action_on_cohomology]{}
     The left $W$-action on $\HH^\bullet(G/T)$ is identified with the left $W$-action on $\HH^\bullet(\tilde{\nilcone})$ by convolution via the homotopy equivalence $G/T \to \borel \gets \tilde{\nilcone}$.
     \begin{proof}
         Pick $\lie{l} \subseteq \lie{h}$ such that $\lie{l}^* = \lie{l} \setminus \{ 0 \} \in \lie{h}^\mathrm{reg}$. Applying convolution construction to $M_1 = \nu^{-1}(w \cdot \lie{l}^*)$, $M_2 = M_3 = \nu^{-1}(\lie{l}^*)$, $Z_{12} = \Lambda_w^{w \cdot \lie{l}^*}$ and $Z_{23} = Z_{13} = \nu^{-1}(\lie{l}^*)$, we obtain $[\Lambda_w^{w \cdot \lie{l}^*}] * - : \HH^\bullet(\nu^{-1}(\lie{l}^*)) \to \HH^\bullet(\nu^{-1}(\lie{l}^*))$, which is compatible with the left $W$-action on $\HH^\bullet(G/T)$ by $w$ via $\nu^{-1}(\lie{l}^*) \to G/T$. Upon specialization, this gives $[\Lambda_w^0] * - : \HH^\bullet(\tilde{\nilcone}) \to \HH^\bullet(\tilde{\nilcone})$.
     \end{proof}
 \end{proposition}
+\fi
 
 For our purpose, it is useful to consider the action on equivariant cohomology. Note that $\HH^\bullet_G(G/T) \cong \mathbb{C}[\lie{h}]$. The degree-$2$ integral class corresponding to the character $\alpha$ of $T$ can be identified with the first Chern class of the $G$-equivariant line bundle $L_\alpha = G \times_T \mathbb{C}_\alpha$. It is easy to see that the right action $w : G/T \to G/T$ pulls the line bundle $L_\alpha$ to $L_{w \cdot \alpha}$. It follows that the induced left $W$-action on $\HH^\bullet_G(\tilde{\nilcone}) \cong \HH^\bullet_G(G/T)$ is precisely the natural $W$-action on $\mathbb{C}[\lie{h}]$.
 
@@ -369,7 +421,7 @@ for all $w,w'\in W$. The convolution action by $\HBMtop(\steinberg)\cong\mathbb{
     \end{proof}
 \end{lemma}
 
-\subsection{Springer Theory in Type $A$}
+\subsection{Springer Theory in Type \mathintitle{A}}
 
 We now specialize to the case $G = \GL_n$. Although $\GL_n$ is not semisimple, its nilpotent orbits and Springer fibers are the same as those of $\SL_n$. Thus, the Springer theory is identical. We choose $B$ to be the upper triangular matrices in $\GL_n$ and $T$ to be the diagonal matrices in $\GL_n$. The Weyl group $W$ is identified with the symmetric group $S_n$.
 
@@ -420,6 +472,7 @@ for $(T, T')$ a pair of tableaux of the same shape of size $n$. By the $G$-invar
     The correspondence between $w$ and $(T, T')$ is given by the Robinson-Schensted correspondence.
 \end{theorem}
 
+\iffalse
 We now give an example of this correspondence in the case $n=3$.
 
 \begin{example}[exp:]{}
@@ -468,6 +521,7 @@ We now give an example of this correspondence in the case $n=3$.
         \caption{Springer Fiber $\mathcal{B}_x$}
     \end{figure}
 \end{example}
+\fi
 
 \subsection{Symplectic Duality}
 
@@ -623,4 +677,3 @@ In particular, $T^*(G/B)$ for type $A$ is self dual.
 % \begin{corollary}[crl:]{}
 %   $\mu^{-1}(\mathcal{N}^{reg})\simeq \tilde{\mathcal{N}}^{reg}$ is an isomorphism. Hence $\mu$ is a resolution of singularities.
 % \end{corollary}
-

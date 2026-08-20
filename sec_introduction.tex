@@ -1,43 +1,96 @@
 \section{Introduction}
 
-Let $\pi:X\rightarrow X_0$ be a conical symplectic resolution with a Hamiltonian action of a torus $T$ on $X$ and $X_0$ such that $\pi$ is $T$-equivariant.
-Assume that $X$ has isolated $T$-fixed points.
-We have an inclusion $X^T\hookrightarrow X$ and hence the restriction map. 
+Let $\pi:X\to X_0$ and $\pi^!:X^!\to X_0^!$ be a symplectic-dual pair
+of conical symplectic resolutions, equipped with Hamiltonian actions of
+tori $T$ and $T^!$. Assume that the fixed-point sets are finite.
+Symplectic duality supplies a bijection
 \[
-    \text{res}:\HH_T^\bullet(X, \mathbb{C})\to \HH^\bullet_T(X^T,\mathbb{C})\simeq \mathbb{C}^{X^T}\otimes\HH_T^\bullet(\text{pt},\mathbb{C}).
+  X^T\xrightarrow{\sim}(X^!)^{T^!}.
 \]
-Specifying to a generic cocharacter $\sigma\in \lie{t}$ gives us a cohomological filtration on $\mathbb{C}^{X^T}$, denoted by $\text{res}_\sigma$.
-
-In the theory of symplectic duality, symplectic resolutions often come in pairs. Denoted by $\pi^!:X^!\rightarrow X_0^!$ the dual symplectic resolution. One component of the duality is that there is a bijection between fixed point sets $X^T$ and ${X^!}^{T^!}$ satisfying certain conditions.
-With the same procedure as above, a choice of generic cocharacter $\eta\in \lie{t^!}$ gives us a second cohomological filtration on $\mathbb{C}^{X^T}$,
+After choosing generic cocharacters $\sigma$ and $\eta$, stable
+envelopes give isomorphisms
 \[
-    \text{res}^!_\eta:\HH_{T^!}^\bullet(X^!, \mathbb{C})_\eta\to \HH^\bullet_{T^!}({X^!}^{T^!},\mathbb{C})_\eta\simeq \mathbb{C}^{{X^!}^{T^!}}\simeq \mathbb{C}^{X^T},
+  \HH_T(X)_\sigma
+  \xleftarrow{\sim}W_{\sigma,\eta}
+  \xrightarrow{\sim}
+  \HH_{T^!}(X^!)_\eta.
 \]
-where the last map is given by the bijection given by symplectic duality.
-One can then ask what is the two-variable Hilbert series of $\mathbb{C}^{X^T}$ given by the bifiltrations $\text{res}_\sigma$ and $\text{res}^!_\eta$.
+The two specialized equivariant cohomology groups are filtered by
+cohomological degree. Transporting these filtrations to
+$W_{\sigma,\eta}$ produces a bifiltration, whose bigraded Hilbert series
+is the \emph{bicharacteristic polynomial} $T_{X,X^!}(x,y)$. This
+construction was introduced by Davison and McBreen in their study of
+symplectic duality and the Tutte polynomial \cite{mcbreen2025}; it is
+recalled precisely in \Cref{sec:bichar_poly}.
 
-In \cite{mcbreen2025}, the authors considered the case associated with symplectic dual pairs of hypertoric varieties. They showed that in order to get an ``interesting'' polynomial, in their case is the Tutte polynomial of the matroid associated with the symplectic dual pair, one has to use instead the stable envelope construction introduced in \cite{maulik2018quantumgroupsquantumcohomology}, in place of the above restriction maps.
-
-In this paper, we show that the bicharacteristic polynomial associated with the self-dual Springer resolution $\tilde{\nilcone} \to \nilcone$ of type $A$ is the following:
+In this paper we compute the bicharacteristic polynomial for the
+self-dual type $A$ Springer resolution
+\[
+  \pi:T^*\Fln=\widetilde{\mathcal N}\longrightarrow\mathcal N.
+\]
+Its torus-fixed points are indexed by $S_n$, and its Steinberg variety
+gives the convolution algebra
+\[
+  \HH^{BM}_{\mathrm{top}}
+    (\widetilde{\mathcal N}\times_{\mathcal N}
+     \widetilde{\mathcal N})
+  \cong\mathbb C[S_n].
+\]
+Nilpotent orbits, Springer representations, and the terms in the
+semismall decomposition are indexed by partitions of $n$. These two
+descriptions meet in the following formula.
 
 \begin{theorem}[thm:bichar_full_flag]{}
-    The bicharacteristic polynomial associated with type $A$ springer resolution is
-    \[
-        \sum_{\lambda \in \Partition}^{} K_{\lambda,(1)^n}(x)\cdot K_{\lambda^T,(1)^n}(y).
-    \]
+  For the self-dual type $A$ Springer resolution,
+  \[
+    T_{X,X^!}(x,y)
+    =\sum_{\lambda\vdash n}
+      K_{\lambda,(1^n)}(x)K_{\lambda^T,(1^n)}(y).
+  \]
 \end{theorem}
 
+The principal issue in the proof is compatibility between the
+stable-envelope isomorphism and the Springer decomposition. A splitting
+provided by the decomposition theorem is not canonical, so we formulate
+this compatibility using the support filtration. Category $\mathcal O$
+identifies its increasing pieces with spans of projective classes and
+its decreasing pieces with spans of simple classes. Koszul duality
+exchanges these bases. Together with the fixed-point correspondence
+$w\mapsto w^{-1}w_\circ$ and the Robinson--Schensted correspondence,
+this shows that the stable-envelope isomorphism sends
+\[
+  F_{\leq\lambda}\longrightarrow F^!_{\geq\lambda^T}.
+\]
+It therefore induces, on the associated graded, an isomorphism
+\[
+  \IH^\bullet(\overline{\mathcal O_\lambda})
+    \otimes\Htop(\mathcal B_\lambda)
+  \longrightarrow
+  \IH^\bullet(\overline{\mathcal O_{\lambda^T}})
+    \otimes\Htop(\mathcal B_{\lambda^T}).
+\]
 
-We start by introducing some combinatorics about Young tableaux and Kostka polynomials in \Cref{chapter_combinatorics}. 
+The original and transported Springer actions commute: after
+localization, one is right multiplication on the fixed-point set
+$S_n$, while the other is left multiplication. A linear-algebra
+argument then shows that the preceding map exchanges the two tensor
+factors. Finally, Lusztig's formula for the intersection cohomology of
+nilpotent-orbit closures identifies their graded dimensions with the
+Kostka--Foulkes polynomials appearing in the theorem.
 
-In \Cref{chapter_symplectic_duality}, we mention the basics of symplectic duality and introduce the main definition of the bicharacteristic polynomial associated with such a dual pair. 
+The formula immediately implies
+\[
+  T_{X,X^!}(x,y)=T_{X,X^!}(y,x)
+  \qquad\text{and}\qquad
+  T_{X,X^!}(1,1)=n!.
+\]
+The case $n=3$ is worked out explicitly at the end of
+\Cref{chapter_main_thm}.
 
-In \Cref{chapter_springer}, we give a survey on Springer Theory, with a focus on Type $A$.
-
-In \Cref{chapter_bbdg}, we introduce the Beilinson-Bernstein-Deligne-Gabber decomposition theorem and its application on Springer Resolutions.
-
-Finally, we conclude by proving \Cref{thm:bichar_full_flag} in \Cref{chapter_main_thm}.
-
-\subsection{Original Work vs Exposition}
-
-\Cref{chapter_main_thm} is the original work, joint with Tong Nok To Omega.
+\paragraph{Organization.}
+\Cref{chapter_combinatorics} fixes the combinatorial conventions.
+\Cref{chapter_symplectic_duality} recalls stable envelopes and defines
+the bicharacteristic polynomial. The Springer and Steinberg geometry is
+collected in \Cref{chapter_springer}, and the semismall decomposition
+and Kostka formula in \Cref{chapter_bbdg}. The proof of the theorem is
+given in \Cref{chapter_main_thm}.

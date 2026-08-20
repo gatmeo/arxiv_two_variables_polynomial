@@ -1,148 +1,101 @@
-\section{Intersection Cohomology and the BBDG Decomposition}
+\section{The semismall Springer decomposition}
 \label{chapter_bbdg}
 
-% This chapter includes a brief introduction to intersection cohomology and the BBDG decomposition, with an emphasis on its application to Springer resolution. We will only consider the middle perversity.
-
-% \subsection{Perverse Sheaves and Intersection Cohomology}
-
-% Let $X$ be an irreducible algebraic variety. A sheaf on $X$ will always mean a sheaf of complex vector spaces.
-
-% A \vocab{local system} on $X$ is a locally constant sheaf with finite-dimensional stalks. Local systems can be classified using representation theory.
-% \begin{proposition}[prop:]{}
-%     Let $X$ be connected and $x \in X$. There is an equivalence of category between the category of local systems and the category of finite-dimensional representations of $\pi_1(X, x)$.
-%     \begin{proof}
-%         Let $\pi : \tilde{X} \to X$ be the universal cover. Given a representation $V$ of $\pi_1(X, x)$, define a local system $L$ on $X$ by setting $L(U)$ to be the vector space of locally constant $\pi_1(X, x)$-equivariant maps $\pi^{-1}(U) \to V$, for all $U \subseteq X$ open.
-%     \end{proof}
-% \end{proposition}
-
-% A bounded complex of sheaves $F \in \mathcal{D}^b(X)$ is \vocab{constructible} if there exists a complex stratification $\{S_\alpha\}_\alpha$ of $X$ such that the cohomology sheaves $\mathcal{H}^i(F|_{S_\alpha})$ is a local system for all $i \in \mathbb{Z}$ and for all $\alpha$. Constructibility is preserved by the main operations of sheaves. Denote by $\mathcal{D}^b_c(X)$ the full subcategory of constructible complexes. This triangulated category admits a special $t$-structure called the \vocab{perverse $t$-structure}, defined by
-% \begin{align*}
-%     F \in \sideset{^p}{^b_c}{\mathcal{D}}(X)^{\leq 0} &\text{ if } \dim \operatorname{supp} \mathcal{H}^i(F) \leq -i \text{ for all } i \in \mathbb{Z}, \\
-%     F \in \sideset{^p}{^b_c}{\mathcal{D}}(X)^{\geq 0} &\text{ if } \dim \operatorname{supp} \mathcal{H}^i(\mathbb{D}_XF) \leq -i \text{ for all } i \in \mathbb{Z},
-% \end{align*}
-% where $\mathbb{D}_X : \mathcal{D}^b_c(X) \to \mathcal{D}^b_c(X)$ is the Verdier duality functor.
-% \begin{proposition}[prop:]{}
-%     Let $\{S_\alpha\}_\alpha$ be a complex stratification of $X$, where $\dim S_\alpha = d_\alpha$. Let $i_\alpha : S_\alpha \to X$ be the inclusion. Suppose that $i_\alpha^*F$ and $i_\alpha^!F$ both have locally constant cohomology sheaves for all $\alpha$. Then,
-%     \begin{align*}
-%         F \in \sideset{^p}{^b_c}{\mathcal{D}}(X)^{\leq 0} &\iff \HH^i(i_\alpha^*F) = 0 \text{ for all } \alpha \text{ and } i > -d_\alpha, \\
-%         F \in \sideset{^p}{^b_c}{\mathcal{D}}(X)^{\geq 0} &\iff \HH^i(i_\alpha^!F) = 0 \text{ for all } \alpha \text{ and } i < -d_\alpha.
-%     \end{align*}
-% \end{proposition}
-
-% A complex in the heart of the perverse $t$-structure $\sideset{^p}{^b_c}{\mathcal{D}}(X)^{\leq 0} \cap \sideset{^p}{^b_c}{\mathcal{D}}(X)^{\geq 0}$ is called a \vocab{perverse sheaf}. Denoted by $\mathrm{Perv}(X)$ the abelian category of perverse sheaves. It is clear that Verdier dual of a perverse sheaf is again perverse.
-% \begin{lemma}[lem:]{}
-%     Suppose $X$ is smooth of dimension $d$ and let $L$ be a local system on $X$. Then, $L[d]$ is perverse.
-%     \begin{proof}
-%         We have $\operatorname{supp} \mathcal{H}^i(L[d]) = \emptyset$ as long as $i \neq -d$. Thus, $L \in \sideset{^p}{^b_c}{\mathcal{D}}(X)^{\leq 0}$. On the other hand, $\omega_X = \mathbb{C}_X[2d]$ since $X$ is smooth. Thus,
-%         \begin{equation*}
-%             \mathbb{D}_XL[d] = \mathcal{H}\mathnormal{om}_X(L[d], \omega_X) = L^*[d].
-%         \end{equation*}
-%         Note that $L^*$ is again a local system on $X$. The result follows.
-%     \end{proof}
-% \end{lemma}
-
-% For a functor $F : \mathcal{D}^b_c(X) \to \mathcal{D}^b_c(Y)$, write $\sideset{^p}{}{F}$ for the composite
-% \begin{equation*}
-%     \mathrm{Perv}(X) \hookrightarrow \mathcal{D}^b_c(X) \xrightarrow{F} \mathcal{D}^b_c(Y) \xrightarrow{\sideset{^p}{}{\tau^{\geq 0}}\sideset{^p}{}{\tau^{\leq 0}}} \mathrm{Perv}(Y),
-% \end{equation*}
-% where $\sideset{^p}{}{\tau^{\geq 0}}$ and $\sideset{^p}{}{\tau^{\leq 0}}$ are the truncations with respect to the perverse $t$-structure.
-
-% Let $j : U \hookrightarrow X$ be a Zariski open dense subset and $F \in \mathcal{D}^b_c(U)$. The \vocab{minimal extension} of $F$ is defined to be the image
-% \begin{equation*}
-%     \sideset{^p}{_{!*}}{j}F = \im(\sideset{^p}{_!}{j}F \to \sideset{^p}{_*}{j}F).
-% \end{equation*}
-
-
-
-
-
-
-
-\subsection{The BBDG Decomposition}
-
-The Beilinson-Bernstein-Deligne-Gabber decomposition theorem provides a topological factorization of the derived pushforward of a proper morphism into building blocks from intersection cohomology.
-In the most general setting, we have the following:
-
-\begin{theorem}{\cite{Beilinson-Bernstein-Deligne1982}}
-Let $f:X \to Y$ be a proper morphism of complex algebraic varieties with $X$ smooth. Then:
-\[ Rf_*\mathbb{C}_X[\dim X] \cong \bigoplus_{\alpha} IC_{\overline{Y_\alpha}}(L_\alpha)[-d_\alpha] \]
-where:
-\begin{itemize}
-    \item $\CB{Y_\alpha}$ is a stratification of $Y$ such that $f$ is topologically locally trivial over each $Y_\alpha$,
-    \item $L_\alpha$ are semi-simple local systems (direct sums of of irreducible local systems) on $Y_\alpha$, %whose rank equals the number of irreducible components of $f^{-1}(y)$ for $y\in Y_\alpha$,
-    \item $d_\alpha$ are even integers.
-\end{itemize}
-\end{theorem}
-
-\begin{definition}{}
-A proper morphism $f:X \to Y$ of irreducible algebraic varieties is \vocab{semi-small} if it satisfies:
-\[ \dim X \times_Y X \leq \dim X \]
-where $X \times_Y X$ is the fiber product with its natural reduced structure. Equivalently, for any $y \in Y$:
-\[ 2\dim f^{-1}(y) \leq \dim X - \dim Y \]
-Let $\CB{Y_\alpha}$ be a stratification compatible with $f$.
-A strata $Y_\alpha$ of $Y$ is called relevant if the equality holds, i.e. $2\dim f^{-1}(y) = \text{codim}(Y_\alpha)$.
-\end{definition}
-
-One can get a nicer decomposition of if $f$ is semi-small:
-
-\begin{theorem}[thm:bbdg_semismall]{}
-    Let $f:X \to Y$ be a \emph{semi-small} proper morphism with $X$ smooth and $Y$ irreducible. Then:
-    \[ Rf_*\mathbb{C}_X[\dim X] \cong \bigoplus_{\alpha} \bigoplus_{L\in \textnormal{Irr Loc}(Y_\alpha)} IC_{\overline{Y_\alpha}}(L)\otimes V_{Y_\alpha,L}  \]
-    where:
-    \begin{itemize}
-        \item There are no shifts $[-d_\alpha]$ appearing (i.e., all $d_\alpha = 0$).
-        \item $L$ are irreducible local systems on $Y_\alpha$ and $V_{Y_\alpha,L}$ are multiplicity spaces, such that the direct sum of local systems over a strata $Y_\alpha$ has fibers isomorphic to the top degree cohomology $\Htop(f^{-1}(y))$ for some $y\in Y_\alpha$.
-        \item The direct sum is finite and includes only all relevant strata.
-    \end{itemize}
-\end{theorem}
-
-Consider the Springer resolution $\pi: \widetilde{\mathcal{N}} \to \mathcal{N}$.
-According to \Cref{sec:steinberg_variety}, $\pi$ is semi-small and $\widetilde{\mathcal{N}}$ is smooth.
-By \Cref{thm:bbdg_semismall}, the summand of the decomposition theorem is labelled by pairs of strata $\OO_x$ and a irreducible local system $L$ on $\OO_x$, i.e. a representation of $\pi_1(\OO_x)$.
-
-When $G$ is simply connected, for example $G=SL_n$, the long exact homotopy sequence of $Z_G(x)\hookrightarrow G\rightarrow \OO_x$ reduces to
+We recall the form of the decomposition theorem needed for the Springer
+resolution. Let $f:X\to Y$ be a proper morphism of irreducible complex
+algebraic varieties, and choose a stratification
+$Y=\bigsqcup_\alpha Y_\alpha$ over which $f$ is topologically locally
+trivial. The morphism $f$ is \vocab{semismall} if
 \[
-    1\rightarrow \pi_1(\OO_x)\rightarrow \pi_0(Z_G(x))\rightarrow 1.
+  \dim(X\times_YX)\leq\dim X.
 \]
-Hence $\pi_0(Z_G(x))\simeq \pi_1(\OO_x)$.
-For $G$ that is non-simply connected, the universal cover $\tilde{G}\rightarrow G$ induces a central extension
+Equivalently, for every $y\in Y_\alpha$,
 \[
-    1\rightarrow \Gamma\rightarrow \pi_1(\OO_x)\rightarrow \pi_0(Z_G(x))\rightarrow 1,
+  2\dim f^{-1}(y)\leq\operatorname{codim}_Y(Y_\alpha).
 \]
-where $\Gamma$ is a subgroup of the fundamental group of $G$.
+A stratum is \vocab{relevant} when equality holds.
 
-However, in either case, the irreducible local system $L$ arises from the decomposition theorem are comes from $\pi_0(Z_G(x))$. And hence the pairs of strata and local systems are precisely those given in the Springer Correspondence \Cref{thm:springer_correspondence}. We have the following theorem:
-
-\begin{theorem}[thm:bbd_springer]{\cite{Springer1978, BM83}}
-Let $\pi: \widetilde{\mathcal{N}} \to \mathcal{N}$ be the springer resolution. We have
-\[ R\pi_*\mathbb{C}_{\widetilde{\mathcal{N}}}[2\dim\widetilde{\mathcal{N}}] \cong \bigoplus_{\OO}\bigoplus _{\chi\in \pi_0(Z_G(x))^\wedge} IC_{\overline{\mathcal{O}}}(L_\chi) \otimes \rho_{\OO,\chi},\]
-where
-\begin{itemize}
-    \item the sum is over nilpotent orbits $\OO$,
-    \item $L_\chi$ is a local system on $\OO$ as a lift of $\chi$,
-    \item and $\rho_{\OO,\chi}$ is the irreducible representaion of $W$ associated with the pair $(\OO,\chi)$ under Springer Correspondence.
-\end{itemize}
+\begin{theorem}[thm:bbdg_semismall]{\cite{Beilinson-Bernstein-Deligne1982}}
+  Let $f:X\to Y$ be a semismall proper morphism with $X$ smooth and
+  $Y$ irreducible. Then $Rf_*\mathbb{C}_X[\dim X]$ is a semisimple
+  perverse sheaf and
+  \[
+    Rf_*\mathbb{C}_X[\dim X]
+    \cong
+    \bigoplus_{\alpha}
+    \bigoplus_{L\in\operatorname{IrrLoc}(Y_\alpha)}
+    IC_{\overline{Y_\alpha}}(L)\otimes V_{\alpha,L}.
+  \]
+  Only relevant strata occur. For $y\in Y_\alpha$, the local system
+  whose isotypic multiplicity spaces are the $V_{\alpha,L}$ has fiber
+  $H^{\mathrm{top}}(f^{-1}(y))$.
 \end{theorem}
 
-\subsection{Type A Springer Resolution}
+Now consider the Springer resolution
+\[
+  \pi:\widetilde{\mathcal N}\longrightarrow\mathcal N.
+\]
+It is semismall by the dimension calculation in
+\Cref{sec:steinberg_variety}. Its strata are the nilpotent orbits, and
+the monodromy on the top cohomology of a Springer fiber factors through
+the component group of the centralizer. The semismall decomposition and
+the Springer correspondence therefore give the following statement.
 
-In the case of Type $A$ Springer Resolution, since the closure of the nipotent orbits are simply connected, i.e. $\pi_1(\mathcal{O}_\lambda)$ are trivial, all the local system are trivial and there is only one IC sheaf over each strata. Morever, the local systems have fibers isomorphic to $\Htop(\BB_\lambda)$. Taking the hypercohomology in \Cref{thm:bbd_springer} gives the followiing:
+\begin{theorem}[thm:bbd_springer]{\cite{Springer1978,BM83}}
+  Let $x\in\mathcal O$ and let
+  \(A(x)=\pi_0(Z_G(x))\). Then
+  \[
+    R\pi_*\mathbb{C}_{\widetilde{\mathcal N}}
+      [\dim\widetilde{\mathcal N}]
+    \cong
+    \bigoplus_{(\mathcal O,\chi)}
+    IC_{\overline{\mathcal O}}(L_\chi)
+      \otimes\rho_{\mathcal O,\chi},
+  \]
+  where the sum is over the pairs $(\mathcal O,\chi)$ occurring in the
+  Springer correspondence, $L_\chi$ is the local system associated
+  with $\chi\in\operatorname{Irr}(A(x))$, and
+  $\rho_{\mathcal O,\chi}$ is the corresponding irreducible
+  $W$-representation.
+\end{theorem}
 
+\subsection{Type \mathintitle{A}}
+
+Take $G=\GL_n$. Nilpotent orbits are indexed by partitions
+$\lambda\vdash n$. By \Cref{lem:centr_conn}, every centralizer
+$Z_G(x)$ is connected, so $A(x)$ is trivial. Consequently, only the
+constant local system occurs on each orbit. Applying the
+$T$-equivariant version of the decomposition theorem and taking
+hypercohomology gives
 \begin{corollary}[crl:type_A_decomposition]{}
-    Let $\pi: \widetilde{\mathcal{N}} \to \mathcal{N}$ be the springer resolution of type $A$. Then
-    \[ \HH_T^\bullet(\widetilde{\mathcal{N}}) \cong \bigoplus_{\lambda\in \Partition} IH_T^\bullet(\overline{\mathcal{O}}_\lambda) \otimes \Htop_T(\BB_\lambda).\]
-\end{corollary}{}
+  For the type $A$ Springer resolution,
+  \[
+    \HH_T^\bullet(\widetilde{\mathcal N})
+    \cong
+    \bigoplus_{\lambda\vdash n}
+    \IH_T^\bullet(\overline{\mathcal O}_\lambda)
+      \otimes\Htop(\BB_\lambda).
+  \]
+\end{corollary}
 
-Lusztig shows the following formula to calculate the stalks of the intersection complexes.
-
+Finally, Lusztig identifies the grading on the intersection-cohomology
+factor with Kostka--Foulkes polynomials.
 \begin{theorem}[thm:IH_kostka]{\cite{lusztig1981green}}
-    The Poincar\'e polynomial of the stalks of $IC_{\overline{\OO_\lambda}}$ at $\OO_\mu$ is
-    \[
-        \sum_{i}^{}q^i\dim \mathcal{H}^i(IC_{\overline{\OO_\lambda}})_x
-        =q^{n(\mu)-n(\lambda)}K_{\lambda,\mu}(q^{-1}),
-    \]
-    where $n(\lambda):=\sum_{i}^{}(i-1)\lambda_i$ is the dimension of $B_\lambda$ and $x\in\OO_\mu$. In particular,
-    \[
-        Q(\OO_\lambda,q):=\sum_iq^i\dim \IH(\overline{\OO_\lambda}) = q^{\binom{n}{2}-n(\lambda)}K_{\lambda,(1^n)}(q^{-1}).
-    \]
+  For $x\in\mathcal O_\mu$, the Poincar\'e polynomial of the stalk of
+  $IC_{\overline{\mathcal O_\lambda}}$ at $x$ is
+  \[
+    \sum_i q^i
+      \dim\mathcal H^i(IC_{\overline{\mathcal O_\lambda}})_x
+    =q^{n(\mu)-n(\lambda)}K_{\lambda,\mu}(q^{-1}),
+  \]
+  where
+  \[
+    n(\lambda)=\sum_i(i-1)\lambda_i=\dim\BB_\lambda.
+  \]
+  In particular,
+  \[
+    Q(\mathcal O_\lambda,q)
+    :=\sum_iq^i\dim\IH^i(\overline{\mathcal O_\lambda})
+    =q^{\binom n2-n(\lambda)}K_{\lambda,(1^n)}(q^{-1}).
+  \]
 \end{theorem}
